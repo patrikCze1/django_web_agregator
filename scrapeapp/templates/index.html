@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Newest news from sites</h2>
+<div class="row">
+    {% for page in pages %}
+    <div class="col s6">
+    <ul class="collapsible">
+        <li>            
+                <div class="collapsible-header">
+                    <h3>{{ page.name }}
+                        <img src="{{ page.image }}" alt="Image">
+                    </h3>
+                </div>
+                
+                    {% for val in page.values %}
+                    <div class="collapsible-body">
+                            <span>
+                                <a href="{{ val.link }}">{{ val.title }}</a>
+                                
+                            </span>
+                        </div>
+                    {% endfor %}
+                </div>
+        </li>
+    </ul>
+
+    {% endfor %}
+</div>
+{% endblock %}
